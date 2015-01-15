@@ -6,6 +6,9 @@ server {
   location / {
     root   <%= @application[:absolute_document_root] %>;
     index  index.html index.htm index.php;
+    default_type "text/html";
+    try_files $uri.html $uri $uri/ /index.html;
+    access_log off;
   }
   
   # Block all svn access
